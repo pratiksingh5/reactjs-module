@@ -1,11 +1,11 @@
-Data Types :
+// Data Types :
 
-1. Primitive
-2. Non Prmimitive / Object Type
+// 1. Primitive
+// 2. Non Prmimitive / Object Type
 
 
-1. Primitive:
-Number
+// 1. Primitive:
+// Number
 
 let a = 15;
 
@@ -31,13 +31,13 @@ let f = Symbol("Hello")
 
 // 2. Non Primitive / Object Type 
 
-1. Object
-2. Array
+// 1. Object
+// 2. Array
 
-let user = {
-    name: "Pratik",
-    city: "Pune"
-}
+// let user = {
+//     name: "Pratik",
+//     city: "Pune"
+// }
 
 
 let numbers = [1,2,4,5]
