@@ -29,7 +29,16 @@
 7. Arrow functions
 8. Scope (global, local, block)
 
-# Session 3
 
-1. Optional chaining (?.) and nullish coalescing (??)
+# Session 3 (Arrays and Array Methods)
+
+1. nullish coalescing (??)
 2. Callbacks and Higher Order Function
+3. Parameters, arguments, default values
+4. Array methods: map, 
+5. Array methods: filter
+6. Array methods: includes
+7. Array methods: Splice Vs Slice
+8. Array methods: reduce, find, some, every - TODO
+9. Array methods: push, pop, shift, unshift, concat - TODO
+
