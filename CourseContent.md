@@ -47,11 +47,11 @@
 1. var, let, const
 2. Scope and Scope Chain
 3. Hoisting 
-4. return
-4. Splice Vs Slice
-5. Spread Operator
 
 # Session 5 (Execution Context)
 1. Execution Context
 2. Call stack
+2. return
+4. Splice Vs Slice
+5. Spread Operator
 
