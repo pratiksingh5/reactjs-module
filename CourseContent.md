@@ -48,10 +48,17 @@
 2. Scope and Scope Chain
 3. Hoisting 
 
+
 # Session 5 (Execution Context)
 1. Execution Context
 2. Call stack
-2. return
-4. Splice Vs Slice
-5. Spread Operator
+
+
+# Session X (Extra)
+1. return
+2. Splice Vs Slice
+3. Spread Operator
+4. Rest Operator
+5. SetTimoout and SetInterval
+6. Object Methods
 

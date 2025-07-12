@@ -1,10 +1,10 @@
-let user = {
-    username: "John",
-    address: {
-        city: "Newyork",
-        // pinCode: 25784
-    }
-}
+// let user = {
+//     username: "John",
+//     address: {
+//         city: "Newyork",
+//         // pinCode: 25784
+//     }
+// }
 
 
 // if(user){
@@ -25,3 +25,27 @@ let user = {
 // Cannot read properties of undefined 
 
 
+let user = {
+    username: "John",
+    address: {
+        city: "Newyork",
+        // coordinates : {
+        //     lat: 1.1,
+        //     long: 2.4
+        // }
+    }
+}
+
+// const latitiude = user.address.coordinates.lat;
+
+// let latitiude;
+
+// if(user.address) {
+//     if(user.address.coordinates) {
+//        latitiude = user.address.coordinates
+//     }
+// }
+
+const latitide = user.address?.coordinates?.lat;
+
+console.log("latitude", latitide)
