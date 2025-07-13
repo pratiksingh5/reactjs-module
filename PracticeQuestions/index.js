@@ -7,6 +7,12 @@ function repeatAction(callback, n) {
     }
 }
 
-repeatAction(function(){
-    console.log("repeatAction")
-} , 3)
+// repeatAction(function(){
+//     console.log("repeatAction")
+// } , 3)
+
+let arr = ["1", "2", "3"]
+
+arr.splice(1,1,"5");
+
+console.log(arr)

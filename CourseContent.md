@@ -46,12 +46,8 @@
 # Session 4 (Scope Fundamentals)
 1. var, let, const
 2. Scope and Scope Chain
-3. Hoisting 
-
-
-# Session 5 (Execution Context)
-1. Execution Context
-2. Call stack
+3. Function declaration vs expression
+4. Hoisting 
 
 
 # Session X (Extra)
@@ -61,4 +57,18 @@
 4. Rest Operator
 5. SetTimoout and SetInterval
 6. Object Methods
+
+
+# Session 6 (Execution Context)
+1. Execution Context
+2. Call stack
+
+
+1. Closures (with real-life examples)
+2. Nesting and shallow vs deep copy
+3. this keyword basics
+4. bind, call, and apply
+5. Temporal Zone
+6. bubbling vs capturing
+7. callback hell
 
