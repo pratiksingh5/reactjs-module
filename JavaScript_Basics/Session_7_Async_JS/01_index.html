@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const data = [
+            {
+                username: "John",
+                role: "admin"
+            },
+            {
+                username: "Harry",
+                role: "user"
+            },
+            {
+                username: "Root",
+                role: "user"
+            }
+        ]
+
+        function getData() {
+            setTimeout(() => {
+                let output = "";
+                data.forEach((user) => {
+                    output += `<li> ${user.username} </li>`
+                })
+
+                document.body.innerHTML = output
+            }, 3000)
+        }
+
+        getData()
+    </script>
+
+</body>
+
+</html>
