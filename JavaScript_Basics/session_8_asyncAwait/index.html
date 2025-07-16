@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        font-family: "Gilroy";
+    }
+</style>
+
+<body>
+    <h2>API CALL USING PROMISES AND AYSNC AWAIT</h2>
+    <ul id="container"></ul>
+
+    <script>
+        // https://fakestoreapi.com/products
+
+        let products = [];
+        let container = document.querySelector("#container");
+
+        //   fetch("https://fakestoreapi.com/products").then((response) => {
+        //     // console.log("data", response)
+        //     response.json().then((result) => {
+        //       console.log("result", result);
+        //       products = result;
+
+        //       if (products.length) {
+        //         products.forEach((product) => {
+        //           console.log("product");
+        //           container.innerHTML += `<li> ${product.title} </li>`;
+        //         });
+        //       }
+        //     });
+        //   });
+
+        const getProducts = async () => {
+
+            try {
+                const response = await fetch("https://fakestoreapi.com/prodcts");
+                const data = await response.json();
+                console.log("data", data);
+                products = data;
+
+                if (products.length) {
+                    products.forEach((product) => {
+                        console.log("product");
+                        container.innerHTML += `<li> ${product.title} </li>`;
+                    });
+                }
+            }
+            catch (err) {
+                console.log("error aaya", err);
+                 container.innerHTML += `Failed to fetch. Retry after sometime`;
+            }
+
+        }
+
+        getProducts()
+
+    </script>
+</body>
+
+</html>

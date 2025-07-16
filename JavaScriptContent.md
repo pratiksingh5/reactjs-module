@@ -50,7 +50,7 @@
 4. Hoisting 
 
 
-# Session X (Extra)
+# Session 5 (Working with Arrays and Objects)
 1. return
 2. Splice Vs Slice
 3. Spread Operator
@@ -64,6 +64,37 @@
 2. Call stack
 
 
+# Session 7 (Asynchronous JavaScrip)
+1. Synchronous and Asynchronous code
+2. Event Loop
+3. Microtask Queue vs Macrotask Queue 
+4. Promises
+
+
+# Session 8 (Async Await)
+
+1. Callback Hell
+2. Async/Await (Modern Promise Syntax)
+3. Fetch API (Real-life API Calls)
+4. Error handling with try/catch
+5. Chaining Promises
+
+
+# Session 9 ( ES6+ Essentials for React)
+
+1. Template literals
+2. Destructuring (arrays and objects)
+3. Spread and rest operators
+4. Modules: import/export
+5. Default parameters
+6. Short-circuiting (||, &&)
+7. Optional chaining and nullish coalescing
+8. this keyword
+9. Prototype Inheritance
+
+
+# Pending
+
 1. Closures (with real-life examples)
 2. Nesting and shallow vs deep copy
 3. this keyword basics
@@ -71,4 +102,6 @@
 5. Temporal Zone
 6. bubbling vs capturing
 7. callback hell
+8. Object Oriented Programming in JavaScript
+9. Pure functions
 
