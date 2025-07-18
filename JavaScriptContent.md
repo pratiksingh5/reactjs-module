@@ -89,8 +89,8 @@
 5. Default parameters
 6. Short-circuiting (||, &&)
 7. Optional chaining and nullish coalescing
-8. this keyword
-9. Prototype Inheritance
+
+
 
 
 # Pending
@@ -101,7 +101,7 @@
 4. bind, call, and apply
 5. Temporal Zone
 6. bubbling vs capturing
-7. callback hell
 8. Object Oriented Programming in JavaScript
-9. Pure functions
+8. Pure functions
+9. Prototype Inheritance
 
