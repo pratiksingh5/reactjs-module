@@ -5,8 +5,20 @@ const App = () => {
   const [value, setValue] = useState(0);
 
   const handleIncrease = () => {
-    setValue(value + 1)
+    // setValue(value + 1);
+    // setValue(value + 1);
+    // setValue(value + 1);
+    // setValue(value + 1);
+
+    setValue((prevValue) => prevValue + 1);
+    setValue((prevValue) => prevValue + 1);
+    setValue((prevValue) => prevValue + 1);
+    setValue((prevValue) => prevValue + 1);
+
   };
+
+  // REACT UI UPDATE KARTA HAI ON THE BASIS OF STATE CHANGE 
+  // BUT STATE CHANGE --> BATCHES ME 
 
   const handleDecrease = () => {
     setValue(value - 1)
