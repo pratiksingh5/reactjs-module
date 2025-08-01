@@ -8,7 +8,7 @@ const App = () => {
   useEffect(() => {
     //mounting phase 
     
-    handlePopUpOpen()
+    // handlePopUpOpen() 
   }, [])
 
   const handlePopUpOpen = () => {

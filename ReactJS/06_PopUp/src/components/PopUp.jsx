@@ -19,6 +19,10 @@ const PopUp = ({ onClose , isOpen }) => {
 
     }, []);
 
+    // [] --> Dependency STATE 
+
+    // [] Is Array ke andar jo bhi state hai agar uski value change huyi toh ye pura UseEffect Phir se RUN HOGA
+
 
     return (
         <div className="pop-up">

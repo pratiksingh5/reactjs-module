@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { use } from "react";
 
 const Clock = () => {
   const [time, setTimer] = useState(10);
@@ -6,12 +7,10 @@ const Clock = () => {
   useEffect(() => {
     console.log("Clock Comoponent Mount Hua");
 
-    let timeId;
-
     setInterval(() => {
         // setTimer(time - 1)
 
-        timeId = setTimer((prev) => {
+        setTimer((prev) => {
             if(prev > 0) {
                 return prev - 1
             }
@@ -20,7 +19,6 @@ const Clock = () => {
     }, 1000)
 
     return () => {
-    clearInterval(timeId)
     console.log("Clock Comoponent UNMOUNT Hua");
     }
   }, []);
