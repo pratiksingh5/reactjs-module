@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
+import { useTodo } from "../context/ThemeContext";
 
 const ThemeSwitchButtton = () => {
   const { theme, handleDarkTheme, handleLightTheme} = useContext(ThemeContext);
+  // const {theme, handleDarkTheme} = useTodo() 
   
   const handleToggleTheme = (e) => {
     const darkModeStatus = e.currentTarget.checked;

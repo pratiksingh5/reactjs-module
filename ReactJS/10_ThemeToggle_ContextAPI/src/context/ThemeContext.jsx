@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from "react";
 
 export const ThemeContext = React.createContext({
-    theme: "light"
-})
+  theme: "light",
+});
 
 // con
 
@@ -10,10 +10,16 @@ export const ThemeContext = React.createContext({
 // 1. Provider --> Jo data bhej rha hai
 // 2, Consumer --> Jo data accept kar rha hai
 
-// useState() 
+// useState()
 
 export const ThemeProvider = ThemeContext.Provider;
 
 // function useMemo() {
 //     return useContext(ThemeContext)
 // }
+
+//  const { theme, handleDarkTheme, handleLightTheme} = useContext(ThemeContext);
+
+export function useTodo() {
+  return useContext(ThemeContext);
+}
