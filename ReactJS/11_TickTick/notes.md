@@ -18,3 +18,23 @@ Brainstorm what methods requires and what parameter we are going to pass
 AddTask method
 
 Use in the Task Form
+
+
+
+1. Add
+2. Read --> Show all the added items
+
+
+3. Edit -->
+
+- Find kisko edit karna hai
+- Update 
+
+
+onEdit icon click
+1. Change input UI to textfield
+2. Change Pencil Icon to Save Icon
+
+4. Delete -->
+5. ToggleComplete
+6. LocalStorage --> Persist State
