@@ -32,13 +32,64 @@ function App() {
   const editTask = (updatedTask) => {
     // Find the edit id
     setTasks((prevTasks) =>
-      prevTasks.map((prevtask) => prevtask.id === updatedTask.id ? updatedTask : prevtask)
+      prevTasks.map((prevtask) =>
+        prevtask.id === updatedTask.id ? updatedTask : prevtask
+      )
     );
   };
 
+  const deleteTask = (id) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+  };
+
+  // isCompleted -> old -> true --> false
+  // isCompleted -> old -> false --> true
+
+  // isCompleted = !isCompleted
+
+  const toggleComplete = (id, isCompleted) => {
+    // console.log("id", id);
+    // console.log("isCompleted", isCompleted);
+
+    // console.log("tasks", tasks)
+    setTasks((prevTasks) =>
+      prevTasks.map((prevtask) =>
+        prevtask.id === id ? {...prevtask, isCompleted: isCompleted} : prevtask
+      )
+    );
+  };
+
+
+//   let obj = {id: 1, name: "Nupur", isHWDone: false};
+
+//  let task = {
+//   id: 12,
+//   taskName: "Test",
+//   isCompleted: false,
+//   isHWDone: false
+//  }
+
+// []--> ARRAY
+// {} --> OBJECT
+
+// {...task , isCompleted: true}
+
+
+
+
+
+  // output 
+  // let obj = {id: 1, name: "Nupur", isHWDone: true};
+
+  // obj.isHWDone = true;
+
+  // console.log("obj", obj)
+
+
+
   // console.log("tasks", tasks);
   return (
-    <TaskProvider value={{ tasks, addTask, editTask }}>
+    <TaskProvider value={{ tasks, addTask, editTask, deleteTask, toggleComplete }}>
       <div className="bg-[#000] min-h-screen w-full flex">
         <div className="left w-[500px] bg-red-400 h-screen">
           <img
@@ -56,7 +107,7 @@ function App() {
           </div>
           <div className="flex flex-wrap gap-y-3">
             {tasks.map((task) => (
-              <TaskItem task={task} key={task.id} />
+              <TaskItem task={task} id={task.id} />
             ))}
           </div>
         </div>
