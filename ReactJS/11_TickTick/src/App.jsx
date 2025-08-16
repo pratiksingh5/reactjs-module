@@ -1,13 +1,26 @@
 import { TaskItem, TickTickForm } from "./components";
 import { TaskProvider } from "./context/TaskContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")));
+
+  // localStorage.getItem("tasks") -- string 
+
+  // tasks --> array 
+  // JSON.parse 
 
   const addTask = (newTask) => {
     setTasks((prevTasks) => [...prevTasks, newTask]);
   };
+
+  useEffect(() => {
+    // console.log("kuch change hua task me");
+
+    // tasks --> array of objects
+    // JSON.stringify 
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+  }, [tasks]);
 
   // const prevTasks = [
   //   {
@@ -54,42 +67,39 @@ function App() {
     // console.log("tasks", tasks)
     setTasks((prevTasks) =>
       prevTasks.map((prevtask) =>
-        prevtask.id === id ? {...prevtask, isCompleted: isCompleted} : prevtask
+        prevtask.id === id
+          ? { ...prevtask, isCompleted: isCompleted }
+          : prevtask
       )
     );
   };
 
+  //   let obj = {id: 1, name: "Nupur", isHWDone: false};
 
-//   let obj = {id: 1, name: "Nupur", isHWDone: false};
+  //  let task = {
+  //   id: 12,
+  //   taskName: "Test",
+  //   isCompleted: false,
+  //   isHWDone: false
+  //  }
 
-//  let task = {
-//   id: 12,
-//   taskName: "Test",
-//   isCompleted: false,
-//   isHWDone: false
-//  }
+  // []--> ARRAY
+  // {} --> OBJECT
 
-// []--> ARRAY
-// {} --> OBJECT
+  // {...task , isCompleted: true}
 
-// {...task , isCompleted: true}
-
-
-
-
-
-  // output 
+  // output
   // let obj = {id: 1, name: "Nupur", isHWDone: true};
 
   // obj.isHWDone = true;
 
   // console.log("obj", obj)
 
-
-
   // console.log("tasks", tasks);
   return (
-    <TaskProvider value={{ tasks, addTask, editTask, deleteTask, toggleComplete }}>
+    <TaskProvider
+      value={{ tasks, addTask, editTask, deleteTask, toggleComplete }}
+    >
       <div className="bg-[#000] min-h-screen w-full flex">
         <div className="left w-[500px] bg-red-400 h-screen">
           <img
@@ -106,7 +116,7 @@ function App() {
             <TickTickForm />
           </div>
           <div className="flex flex-wrap gap-y-3">
-            {tasks.map((task) => (
+            {tasks && tasks.lengh && tasks.map((task) => (
               <TaskItem task={task} id={task.id} />
             ))}
           </div>
