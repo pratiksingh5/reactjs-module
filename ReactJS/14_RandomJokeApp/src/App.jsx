@@ -1,6 +1,71 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const App = () => {
+  const [quote, setQuote] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [isCopied, setIsCopied] = useState(false);
+
+
+  // const btnRef = useRef(null);
+
+  const quoteRef = useRef(null)
+
+  // useEffect(() => { 
+  // //  const btnElement = document.getElementById("btn");
+  // //  console.log('quoteElement',btnElement);
+
+
+   
+  // //  console.log("btnElement.textContent", btnElement.textContent)
+
+  //  console.log("buttonRef", btnRef)
+
+  //  console.log('buttonRef Current',btnRef?.current);
+
+  // }, [])
+
+  const handleCopy = async () => {
+    if(!quoteRef.current) return;
+
+    const textToCopy = quoteRef.current.textContent;
+    console.log("textToCopy", textToCopy);
+
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      setIsCopied(true)
+
+      // remove copied 
+      setTimeout(() => setIsCopied(false) , 1500)
+    }
+    catch(err) {
+      setError("Copy Failed")
+    }
+  }
+
+
+  const fetchQuote = async () => {
+    try {
+      setIsLoading(true);
+      setError("")
+      setQuote([])
+      const response = await fetch("https://api.quotable.io/quotes/random");
+      // console.log("response", response);
+      const data = await response.json();
+      // console.log("data", data);
+      setQuote(data);
+    } catch (err) {
+      setError("Could not fetch request!")
+      console.log(err);
+      console.log("error aya", error)
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchQuote();
+  }, []);
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="w-full max-w-xl ">
@@ -12,46 +77,54 @@ const App = () => {
             </h1>
 
             {/* Subtle copy feedback */}
+
+            {isCopied && (
             <span
               className={`text-xs px-2 py-1 rounded-full border transition opacity-100 border-emerald-300 text-emerald-700`}
               aria-live="polite"
             >
               Copied!
             </span>
+            )}
+
           </div>
 
           {/* Quote area */}
           <div className="mt-6">
             <div className="rounded-2xl bg-neutral-50 border border-neutral-200 p-5">
               {/* Loading state */}
-              {/* {loading && (
+              {isLoading && (
               <div className="animate-pulse space-y-2">
                 <div className="h-4 w-3/4 bg-neutral-200 rounded"></div>
                 <div className="h-4 w-2/3 bg-neutral-200 rounded"></div>
                 <div className="h-4 w-1/3 bg-neutral-200 rounded"></div>
               </div>
-            )} */}
+            )}
 
-              {/* Error state
-            {!loading && error && (
+              {/* Error state */}
+
+            {error && (
               <p className="text-red-600 text-sm">{error}</p>
-            )} */}
+            )}
 
               {/* Quote text */}
 
-              <blockquote className="text-neutral-800 text-lg md:text-xl leading-relaxed">
-                {/* Using semantic quotes + em-dash author */}
-                <span className="italic">“Test”</span>
-                <span className="block text-sm text-neutral-500 mt-2">
-                  — Test
-                </span>
-              </blockquote>
+              {quote?.length > 0 && (
+                <blockquote ref={quoteRef} className="text-neutral-800 text-lg md:text-xl leading-relaxed">
+                  {/* Using semantic quotes + em-dash author */}
+                  <span id="quote" className="italic">{quote[0].content}</span>
+                  <span className="block text-sm text-neutral-500 mt-2">
+                    — {quote[0].author}
+                  </span>
+                </blockquote>
+              )}
             </div>
           </div>
 
           {/* Actions */}
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-medium border border-neutral-200 bg-neutral-900 text-white hover:bg-neutral-800 active:scale-[.99] transition">
+            <button id="btn" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-medium border border-neutral-200 bg-neutral-900 text-white hover:bg-neutral-500 active:scale-[.99] transition hover:cursor-pointer"
+            onClick={fetchQuote}  >
               {/* small sparkle icon */}
               <svg
                 width="16"
@@ -66,7 +139,7 @@ const App = () => {
               Get Quote
             </button>
 
-            <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-medium border border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-100 active:scale-[.99] transition disabled:opacity-50 disabled:cursor-not-allowed">
+            <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-medium border border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-100 active:scale-[.99] transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer" onClick={handleCopy}>
               {/* copy icon */}
               <svg
                 width="16"
