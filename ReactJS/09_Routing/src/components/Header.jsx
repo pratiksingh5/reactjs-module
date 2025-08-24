@@ -8,7 +8,7 @@ const Header = () => {
         <li>
           {/* <Link to="/">Home</Link>  */}
           <NavLink
-             className={({ isActive }) => `p-6 ${isActive ? "bg-red-500" : ""}`}
+            className={({ isActive }) => `p-6 ${isActive ? "bg-red-500" : ""}`}
             to="/"
           >
             Home
