@@ -1,17 +1,4 @@
-@import "tailwindcss";
-
-/* .center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.center {
-    @apply flex items-center justify-center;
-}
-
-/* <div className="flex items-center justify-center"> */
-
+/* Minimal design tokens */
 
 .container-max {
   @apply max-w-6xl mx-auto px-4;

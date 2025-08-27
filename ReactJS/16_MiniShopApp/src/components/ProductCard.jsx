@@ -1,6 +1,9 @@
 import React from "react";
+import { formatCurrency } from "../utils/currency";
 
 const ProductCard = ({ product }) => {
+  // const updatedPrice  = product.price;
+
   return (
     <div className="card group overflow-hidden">
       <a className="block p-4">
@@ -18,7 +21,7 @@ const ProductCard = ({ product }) => {
         <div className="mt-1 text-neutral-500 text-xs line-clamp-2">
           {product.category}
         </div>
-        <div className="mt-2 font-semibold">{product.price}</div>
+        <div className="mt-2 font-semibold">{formatCurrency(product.price)}</div>
       </a>
       <div className="p-4 pt-0">
         <button className="btn btn-primary w-full">Add to Cart</button>
