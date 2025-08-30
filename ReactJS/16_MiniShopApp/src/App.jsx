@@ -1,5 +1,5 @@
 import React from "react";
-import { Home, Cart } from "./pages";
+import { Home, Cart, ProductDetails } from "./pages";
 import { Header, Footer, FilterBar } from "./components";
 import { BrowserRouter, Routes, Route } from "react-router";
 
@@ -14,6 +14,8 @@ const App = () => {
             {/* <Home /> */}
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+
           </Routes>
         </main>
         <Footer />

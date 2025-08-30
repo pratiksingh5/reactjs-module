@@ -1,12 +1,14 @@
 import React from "react";
+import { Link} from "react-router"
 import { formatCurrency } from "../utils/currency";
 
 const ProductCard = ({ product }) => {
   // const updatedPrice  = product.price;
+  console.log("product", product)
 
   return (
-    <div className="card group overflow-hidden">
-      <a className="block p-4">
+    <div className="card group overflow-hidden hover:cursor-pointer">
+      <Link to={`/product/${product.id}`} className="block p-4">
         <div className="h-48 w-full grid place-items-center overflow-hidden rounded-xl bg-neutral-50">
           <img
             src={product.image}
@@ -22,7 +24,7 @@ const ProductCard = ({ product }) => {
           {product.category}
         </div>
         <div className="mt-2 font-semibold">{formatCurrency(product.price)}</div>
-      </a>
+      </Link>
       <div className="p-4 pt-0">
         <button className="btn btn-primary w-full">Add to Cart</button>
       </div>

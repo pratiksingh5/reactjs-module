@@ -1,3 +1,5 @@
+
+
 1. Design Components -
 (Products Page)
     - Header
@@ -5,6 +7,7 @@
     - FilterBar
     - ProductList
 
+Part 2
 
 1. @apply in tailwind
 2. Resolve UI Issue
@@ -15,3 +18,14 @@
 7. Render Products in the UI
 8. Handle Error and Laoder
 9. Currency Convert
+
+
+# Part 3
+
+1. Add Loader Component
+2. Product Detail Page Navigation
+3. Product Detail Page UI
+4. Get Product By ID
+5. Empty State - Reusable component by using default props
+6. Brainstrom on states we are going to use
+7. useReducer

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FilterBar, ProductList } from "../components";
+import { EmptyState, FilterBar, ProductList } from "../components";
 import { api } from "../api/axios";
 import { Loader } from "../components";
 
@@ -32,7 +32,8 @@ const Home = () => {
     <div>
       <FilterBar />
       {loading && <Loader/>}
-      {!loading && error && <h1>{error}</h1>}
+      {!loading && error && <EmptyState title="Could not load products" subtitle={error}/>}
+      {!loading && !error && products.length === 0 && <EmptyState title="No Products Found"/>}
       <ProductList products={products} />
     </div>
   );
