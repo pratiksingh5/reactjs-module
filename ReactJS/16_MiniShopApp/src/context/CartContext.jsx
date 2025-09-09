@@ -50,15 +50,15 @@
 
 // Ye 5 mil ke ek hi state ko update krenge --->  State -> items[]
 
-import { useReducer } from "react";
+// import { useReducer } from "react";
 
-const initialState = {
-  items: [],
-};
+// const initialState = {
+//   items: [],
+// };
 
-const initialState = {
-  items: [{ id: "1", title: "abc", quantity: 2, price: 100, image: "link" }],
-};
+// const initialState = {
+//   items: [{ id: "1", title: "abc", quantity: 2, price: 100, image: "link" }],
+// };
 
 // state = {
 //    items: [{id: "1", title: "abc", quantity: 2, price: 100, image: "link"}]
@@ -94,25 +94,67 @@ const initialState = {
 //     Clear ke liye payload ka kya zarurart?
 // }
 
+// function reducer(state, action) {
+//   switch (action.type) {
+//     case "INIT":
+//       return action.payload;
+
+//     case "ADD": {
+//       const { item } = action.payload;
+
+//       const existingItems = state.items;
+//       return { ...existingItems, item };
+//     }
+
+//     case "REMOVE": {
+//       const id = action.payload;
+//       return { ...state, items: state.items.filter(p > p.id !== id) };
+//     }
+
+//     case "CLEAR": {
+//         return {...state, items: []}
+//     }
+//   }
+// }
+
+import { useReducer, createContext, useContext } from "react";
+
+const initialState = {
+  items: [],
+  // userName: "Pratik" 
+};
+
 function reducer(state, action) {
   switch (action.type) {
-    case "INIT":
-      return action.payload;
-
     case "ADD": {
       const { item } = action.payload;
 
-      const existingItems = state.items;
-      return { ...existingItems, item };
+      // state.items.map((i) => )
+      return {...state, items: [...state.items, item]}
     }
-
-    case "REMOVE": {
-      const id = action.payload;
-      return { ...state, items: state.items.filter(p > p.id !== id) };
-    }
-
-    case "CLEAR": {
-        return {...state, items: []}
-    }
+    default:
+      return state;
   }
+}
+
+const CartContext = createContext(null);
+
+// const CartProvider = CartContext.Provider;
+
+export function CartProvider({ children }) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  // let totalItems = 0;
+  // let totalPrice = 0;
+
+  const value = {
+    state,
+    dispatch,
+  };
+
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+}
+
+export function useCart() {
+  return useContext(CartContext);
 }

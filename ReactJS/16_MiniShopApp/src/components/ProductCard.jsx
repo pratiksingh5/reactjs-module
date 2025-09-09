@@ -1,10 +1,23 @@
 import React from "react";
 import { Link} from "react-router"
 import { formatCurrency } from "../utils/currency";
+import { useCart } from "../context/CartContext";
 
 const ProductCard = ({ product }) => {
+  const { dispatch}  = useCart() 
   // const updatedPrice  = product.price;
-  console.log("product", product)
+  // console.log("product", product);
+
+    // const item = {
+    //   id: product.id,
+    //   title: product.title,
+    //   price: product.price,
+    //   image: product.image,
+    // }
+
+  const addItem = () => {
+      dispatch({type: "ADD", payload: { item: product}})
+  }
 
   return (
     <div className="card group overflow-hidden hover:cursor-pointer">
@@ -26,7 +39,7 @@ const ProductCard = ({ product }) => {
         <div className="mt-2 font-semibold">{formatCurrency(product.price)}</div>
       </Link>
       <div className="p-4 pt-0">
-        <button className="btn btn-primary w-full">Add to Cart</button>
+        <button className="btn btn-primary w-full" onClick={addItem}>Add to Cart</button>
       </div>
     </div>
   );

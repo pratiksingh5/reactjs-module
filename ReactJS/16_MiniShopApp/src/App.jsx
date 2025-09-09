@@ -2,11 +2,13 @@ import React from "react";
 import { Home, Cart, ProductDetails } from "./pages";
 import { Header, Footer, FilterBar } from "./components";
 import { BrowserRouter, Routes, Route } from "react-router";
+import { CartProvider } from "./context/CartContext";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col">
+    <CartProvider>
+   <div className="min-h-screen flex flex-col">
         <Header />
         {/* Main content */}
         <main className="flex-1 container-max py-6 w-full">
@@ -20,6 +22,8 @@ const App = () => {
         </main>
         <Footer />
       </div>
+    </CartProvider>
+   
     </BrowserRouter>
   );
 };

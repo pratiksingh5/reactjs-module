@@ -1,28 +1,20 @@
 import React from 'react'
 import { Plus , Minus} from 'lucide-react';
-
-
-const products = [
-  {
-    id: 0,
-    title: "Product 1",
-    price: 0.1,
-    description: "string",
-    category: "string",
-    image: "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_t.png",
-  },
-
-  {
-    id: 1,
-    title: "Product 2",
-    price: 100,
-    description: "string",
-    category: "string",
-    image: "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_t.png",
-  },
-];
+import { useCart } from '../context/CartContext';
 
 const Cart = () => {
+
+  const {state, dispatch} = useCart();
+
+  console.log("state", state);
+
+  if(state.items.length === 0) {
+    return <div className='text-center py-20'>
+      <div className='text-6xl'>👜</div>
+      <h3 className='font-semibold mt-4 text-lg'>No Items Present in Cart</h3>
+      </div>
+  }
+
   return (
       <section className="grid lg:grid-cols-3 gap-6">
       {/* Items */}
@@ -34,7 +26,7 @@ const Cart = () => {
           </button>
         </div>
         <ul className="divide-y">
-          {products.map((item) => (
+          {state.items.map((item) => (
             <li key={item.id} className="p-4 flex items-center gap-4">
               <img
                 src={item.image}
@@ -62,7 +54,7 @@ const Cart = () => {
                   <Plus className="w-4 h-4"/>
                 </button>
               </div>
-              <div className="w-24 text-right font-medium">555</div>
+              <div className="w-24 text-right font-medium">{item.price}</div>
               <button className="ml-2 text-sm text-red-600 hover:underline">
                 Remove
               </button>
