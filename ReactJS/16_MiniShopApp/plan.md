@@ -29,3 +29,15 @@ Part 2
 5. Empty State - Reusable component by using default props
 6. Brainstrom on states we are going to use
 7. useReducer
+
+
+
+1. Show Total Item numbers in the Cart - Navbar
+    -- Done
+
+
+2. Remove Item
+
+3. Clear All
+
+4. Update Items Summary

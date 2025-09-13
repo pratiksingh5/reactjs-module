@@ -4,7 +4,7 @@ import { useCart } from '../context/CartContext';
 
 const Cart = () => {
 
-  const {state, dispatch} = useCart();
+  const {state, dispatch, totalItems, totalPrice} = useCart();
 
   console.log("state", state);
 
@@ -20,8 +20,8 @@ const Cart = () => {
       {/* Items */}
       <div className="lg:col-span-2 card">
         <div className="p-4 border-b flex items-center justify-between">
-          <h2 className="font-semibold">Cart 5</h2>
-          <button className="text-sm text-neutral-500 hover:text-neutral-900">
+          <h2 className="font-semibold">Cart</h2>
+          <button className="text-sm text-neutral-500 hover:text-neutral-900 cursor-pointer" onClick={()=> dispatch({type: "CLEAR"})}>
             Clear all
           </button>
         </div>
@@ -37,7 +37,7 @@ const Cart = () => {
                 <h4 className="text-sm font-medium line-clamp-1">
                   {item.title}
                 </h4>
-                <div className="text-xs text-neutral-500 mt-0.5"> 555</div>
+                <div className="text-xs text-neutral-500 mt-0.5"> {item.price}</div>
               </div>
               <div className="flex items-center gap-2">
                 <button className="btn">
@@ -48,14 +48,14 @@ const Cart = () => {
                   type="number"
                   min="1"
                   max="99"
-                  value={5}
+                  value={item.qty}
                 />
                 <button className="btn">
                   <Plus className="w-4 h-4"/>
                 </button>
               </div>
               <div className="w-24 text-right font-medium">{item.price}</div>
-              <button className="ml-2 text-sm text-red-600 hover:underline">
+              <button className="ml-2 text-sm text-red-600 hover:underline cursor-pointer" onClick={() => dispatch({ type: "REMOVE", payload: item.id})}>
                 Remove
               </button>
             </li>
@@ -68,11 +68,11 @@ const Cart = () => {
         <h3 className="font-semibold">Order Summary</h3>
         <div className="mt-3 flex justify-between text-sm">
           <span>Items</span>
-          <span>4</span>
+          <span>{totalItems}</span>
         </div>
         <div className="mt-1 flex justify-between text-sm">
           <span>Subtotal</span>
-          <span> 555 </span>
+          <span> {totalPrice} </span>
         </div>
         <div className="mt-6">
           <button className="btn btn-primary w-full">Checkout</button>
