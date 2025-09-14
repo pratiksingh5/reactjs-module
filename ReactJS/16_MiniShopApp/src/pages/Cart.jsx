@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Plus , Minus} from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 const Cart = () => {
 
   const {state, dispatch, totalItems, totalPrice} = useCart();
+  // const [quantity, setQuantity] = useState()
 
   console.log("state", state);
 
@@ -25,8 +26,10 @@ const Cart = () => {
             Clear all
           </button>
         </div>
+
+        {console.log("itesm", state.items)}
         <ul className="divide-y">
-          {state.items.map((item) => (
+          {state.items.length > 0 && state.items.map((item) => (
             <li key={item.id} className="p-4 flex items-center gap-4">
               <img
                 src={item.image}
@@ -41,7 +44,7 @@ const Cart = () => {
               </div>
               <div className="flex items-center gap-2">
                 <button className="btn">
-                  <Minus className="w-4 h-4"/>
+                  <Minus className="w-4 h-4" onClick={(e) => dispatch({type: "UPDATE_QTY", payload: {id: item.id, qty: item.qty - 1}})}/>
                 </button>
                 <input
                   className="input w-16 text-center"
@@ -51,7 +54,7 @@ const Cart = () => {
                   value={item.qty}
                 />
                 <button className="btn">
-                  <Plus className="w-4 h-4"/>
+                  <Plus className="w-4 h-4" onClick={(e) => dispatch({type: "UPDATE_QTY", payload: {id: item.id, qty: item.qty + 1}})}/>
                 </button>
               </div>
               <div className="w-24 text-right font-medium">{item.price}</div>

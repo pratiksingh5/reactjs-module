@@ -41,3 +41,26 @@ Part 2
 3. Clear All
 
 4. Update Items Summary
+
+
+
+useReducer --
+
+
+initialState ---
+
+state.products
+state.users
+
+
+GET == direct state get kr skte 
+
+
+UPDATE == dispatch ---
+
+dispatch(type, payload)
+
+
+dispatch === Ye WO banda hai jo ki responsibe hai state ko update karne ka
+
+<!-- setName  -->

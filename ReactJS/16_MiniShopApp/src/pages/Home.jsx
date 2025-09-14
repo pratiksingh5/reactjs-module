@@ -6,7 +6,15 @@ import { Loader } from "../components";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
+  const [filters, setFilters] = useState({category: "all", name: ''})
+
+
+  const filteredData = () => {
+    console.log("filtes", filters)
+    return products.filter( p => filters.category === "all" ? true : p.category === filters.category)
+    .filter(p => p.title.toLowerCase().includes(filters.name.toLowerCase()))
+  }
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -30,11 +38,11 @@ const Home = () => {
 
   return (
     <div>
-      <FilterBar />
+      <FilterBar setFilters={setFilters}/>
       {loading && <Loader/>}
       {!loading && error && <EmptyState title="Could not load products" subtitle={error}/>}
       {!loading && !error && products.length === 0 && <EmptyState title="No Products Found"/>}
-      <ProductList products={products} />
+      <ProductList products={filteredData()} />
     </div>
   );
 };

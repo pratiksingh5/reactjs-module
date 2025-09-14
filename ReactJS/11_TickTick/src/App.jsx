@@ -98,7 +98,7 @@ function App() {
   // console.log("tasks", tasks);
   return (
     <TaskProvider
-      value={{ tasks, addTask, editTask, deleteTask, toggleComplete }}
+     value={{ tasks, addTask, editTask, deleteTask, toggleComplete }} 
     >
       <div className="bg-[#000] min-h-screen w-full flex">
         <div className="left w-[500px] bg-red-400 h-screen">
@@ -127,3 +127,6 @@ function App() {
 }
 
 export default App;
+
+
+

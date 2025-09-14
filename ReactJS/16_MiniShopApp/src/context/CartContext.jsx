@@ -121,39 +121,48 @@ import { useReducer, createContext, useContext } from "react";
 
 const initialState = {
   items: [],
-  // userName: "Pratik" 
+  // userName: "Pratik"
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case "ADD": {
       const { item } = action.payload;
-      const existing = state.items.find((i) => i.id === item.id);
-      // console.log("exiting", existing)
-
-      // this was the case when the item is newly added 
+      // const existing = state.items.find(i=> i.id === item.id);
+      // this was the case when the item is newly added
       // const updatedItem = {...item, qty: item.qty || 1};
 
       // ? i + 1 : item.qty || 1
 
-      // const updatedItem = existing ? {...existing, qty : existing.qty + 1}: {...item, qty: item.qty || 1} ;
-
-      
-
+      // const updatedItems = existing
+      //   ? { ...existing, qty: existing.qty + 1 }
+      //   : { ...item, qty: item.qty || 1 };
 
       // state.items.map((i) => )
       // return {...state, items: [...state.items, updatedItem]}
-      return {...state, items: updatedItems}
 
+      const existing = state.items.find(i => i.id === item.id);
+
+      const updatedItems = existing ? state.items.map((i) => i.id === item.id  ? {...i, qty: i.qty + (item.qty || 1)} : i) : [...state.items,  {...item, qty: item.qty || 1}]
+      return { ...state, items: updatedItems };
     }
 
     case "REMOVE": {
       const id = action.payload;
-      return { ...state, items: state.items.filter((i) => i.id !== id) }
+      return { ...state, items: state.items.filter((i) => i.id !== id) };
     }
 
     case "CLEAR": {
-      return { ...state, items: []}
+      return { ...state, items: [] };
+    }
+
+    case "UPDATE_QTY" : {
+     const {id, qty} = action.payload;
+
+     return {
+      ...state,
+      items: state.items.map((i) => i.id === id ?{...i, qty}: i )
+     }
     }
 
     default:
@@ -171,30 +180,30 @@ export function CartProvider({ children }) {
   let totalItems = state.items.length || 0;
   let totalPrice = 0;
 
-  for(let i = 0; i < state.items.length; i++) {
+  for (let i = 0; i < state.items.length; i++) {
     totalPrice += state.items[i].price;
   }
   // let totalPrice = 0;
 
-//   state = {
-//     items: [ {
-//       id: 1,
-//       productName: "abcd",
-//       price: 222
-//     },
-//  {
-//       id: 2,
-//       productName: "xyz",
-//       price: 222
-//     } 
-//   ]
-//   }
+  //   state = {
+  //     items: [ {
+  //       id: 1,
+  //       productName: "abcd",
+  //       price: 222
+  //     },
+  //  {
+  //       id: 2,
+  //       productName: "xyz",
+  //       price: 222
+  //     }
+  //   ]
+  //   }
 
   const value = {
     state,
     dispatch,
     totalItems,
-    totalPrice
+    totalPrice,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
