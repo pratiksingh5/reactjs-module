@@ -34,3 +34,26 @@ Jab bhi hume state ko get karna ho --- Hum useSelector use krenge [GET]
 10. We will make store
 
 
+
+
+1. Create store -> configureStore()
+
+2. Create reducer ->
+
+    Slice --ka part hota hai reducer bas slice me ek do property aur aati hai jaise slice ka naam, initialState ki value etc
+
+    Slice ->
+    1. Name
+    2. InitialState
+    3. reducers functions
+
+3. Linking between Store and reducer (slice)
+
+4. Wrap store on the top level component
+
+5. Add Todo -
+    - dispatch(addTodo(task))
+
+6. Read Todo
+
+    useSelector - state

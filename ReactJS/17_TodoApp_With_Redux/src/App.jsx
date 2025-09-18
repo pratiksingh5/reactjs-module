@@ -1,18 +1,21 @@
 import TodoForm from "./components/TodoForm";
 import TodoItem from "./components/TodoItem";
+import { useSelector } from "react-redux";
 
-const todos = [
-  {
-    id: 1,
-    text: "Sample Test"
-  },
-    {
-    id: 2,
-    text: "Sample Test 2"
-  }
-]
+// const todos = [
+//   {
+//     id: 1,
+//     text: "Sample Test"
+//   },
+//     {
+//     id: 2,
+//     text: "Sample Test 2"
+//   }
+// ]
 
 function App() {
+  const todos = useSelector((state) => state.todos);
+  // console.log("todos", todos)
   return (
     <div className="bg-[#000] min-h-screen w-full flex">
       <div className="left w-[500px] bg-red-400 h-screen">
