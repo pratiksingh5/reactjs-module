@@ -34,10 +34,10 @@
 
 ## **4. React Hooks (Advanced/Useful)**
 - `useReducer` (complex state, alternative to Redux)  
-- `useCallback` (memoizing functions)  
-- `useMemo` (performance optimization)  
-- `useLayoutEffect` (sync before paint)  
-- `useImperativeHandle` (custom refs)  
+- `useCallback` (memoizing functions)  -- Pending
+- `useMemo` (performance optimization)  -- Pending
+- `useLayoutEffect` (sync before paint)  -- Pending
+- `useImperativeHandle` (custom refs)  -- Pending
 - Custom Hooks (reusable logic – debounce, fetch, auth, localStorage, etc.)  
 
 ---
@@ -46,8 +46,8 @@
 - Controlled vs uncontrolled inputs  
 - Handling multiple inputs (object state)  (Learn in Project)
 - Validation (manual & libraries like Yup)  (Learn in Project)
-- Multi-step forms  
-- File upload handling  
+- Multi-step forms   -- Pending
+- File upload handling   -- Pending
 - Form libraries (Formik, React Hook Form)  (Learn in Project)
 
 ---
@@ -63,7 +63,7 @@
 ## **7. State Management (Beyond useState)**
 - Context API (with useReducer for global state)  
 - Redux (basics → Redux Toolkit)  
-- Zustand / Jotai / Recoil (modern alternatives)  
+- Zustand / Jotai / Recoil (modern alternatives)   -- Pending
 
 ---
 
@@ -73,8 +73,8 @@
   - Nested routes  
   - Dynamic routes (`/user/:id`)  
   - Navigation (`useNavigate`)  
-  - Protected routes (Auth)  
-  - Lazy loading routes  
+  - Protected routes (Auth)   -- Pending
+  - Lazy loading routes   -- Pending
 
 ---
 
@@ -82,22 +82,22 @@
 - Fetch API & Axios in React  
 - `useEffect` for fetching  
 - Handling loading & error states  
-- Pagination & infinite scroll  
-- Debouncing search queries  
+- Pagination & infinite scroll   -- Pending
+- Debouncing search queries   -- Pending
 
 ---
 
 ## **10. Performance Optimization**
-- React.memo for component memoization  
-- `useCallback` & `useMemo` use cases  
-- Code splitting & lazy loading (`React.lazy`, `Suspense`)  
+- React.memo for component memoization   -- Pending
+- `useCallback` & `useMemo` use cases   -- Pending
+- Code splitting & lazy loading (`React.lazy`, `Suspense`)   -- Pending
 - Profiler tool in React DevTools  
 
 ---
 
 ## **11. Advanced React Features**
-- Portals (modals, tooltips)  
-- Error Boundaries (error handling in UI)  
+- Portals (modals, tooltips)   -- Pending
+- Error Boundaries (error handling in UI)   -- Pending
 - Concurrent React (concepts of concurrent rendering)  
 
 ---

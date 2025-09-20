@@ -72,27 +72,6 @@
 
 ---
 
-## Session 9: Forms Basics
-**Topics Covered:**
-- Controlled components
-- Handling input, textarea, select
-- Two-way binding
-
-**Project:** Registration form UI  
-**Homework:** Feedback form with validations
-
----
-
-## Session 10: Forms Advanced
-**Topics Covered:**
-- Multiple inputs handling
-- Checkbox, radio buttons
-- Form submission
-
-**Project:** Survey form  
-**Homework:** Multi-step form (basic)
-
----
 
 ## Session 11: State Lifting
 **Topics Covered:**
