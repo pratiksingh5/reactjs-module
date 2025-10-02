@@ -29,7 +29,11 @@ Session -2
 
 1. Complete Sign Up Page
 2. Create Profile Page
-3. Run Backend Server
+
+
+Session 3
+
+3. Run Backend Server 
 4. Check Backend API's
 5. Axios Setup
 6. React Hook Form
