@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { Login, SignUp, Profile, NotFound } from "../pages";
 import BaseLayout from "@/layouts/BaseLayout";
+import Protected from "./Protected";
 
 const routes = createBrowserRouter([
   {
@@ -17,7 +18,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: (
+          <Protected>
+            <Profile />
+          </Protected>
+        ),
       },
     ],
   },

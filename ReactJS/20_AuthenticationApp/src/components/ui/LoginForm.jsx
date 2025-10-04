@@ -25,8 +25,13 @@ import {
 } from "@/components/ui/form";
 import { api } from "@/api/axios";
 import { useNavigate } from "react-router";
+import { login } from "@/redux/userSlice";
+import { useDispatch } from "react-redux";
 
 export function LoginForm({ className, ...props }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const form = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -36,17 +41,16 @@ export function LoginForm({ className, ...props }) {
   });
 
   const handleLogin = async (value) => {
-    console.log("Login Click hua", value);
-
     try {
-      // const response = await api.post("/api/auth/login", {
-      //   email: value.email,
-      //   password: value.password,
-      // });
-      // console.log("response", response);
-      // if(response.data) {
-      //   navigate("/profile")
-      // }
+      const response = await api.post("/api/auth/login", {
+        email: value.email,
+        password: value.password,
+      });
+
+      if(response.data) {
+        dispatch(login(response.data))
+        navigate("/profile")
+      }
     } catch (error) {
       console.log("error", error);
     }
