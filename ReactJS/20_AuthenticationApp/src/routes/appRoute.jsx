@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
-import { Login, SignUp, Profile, NotFound } from "../pages";
+import { Login, SignUp, Profile, NotFound, Users } from "../pages";
 import BaseLayout from "@/layouts/BaseLayout";
-import Protected from "./Protected";
+import ProtectedRoutes from "./Protected";
 
 const routes = createBrowserRouter([
   {
@@ -19,9 +19,17 @@ const routes = createBrowserRouter([
       {
         path: "/profile",
         element: (
-          <Protected>
+          <ProtectedRoutes>
             <Profile />
-          </Protected>
+          </ProtectedRoutes>
+        ),
+      },
+      {
+        path: "/users",
+        element: (
+          <ProtectedRoutes>
+            <Users />
+          </ProtectedRoutes>
         ),
       },
     ],

@@ -40,3 +40,21 @@ Session 3
 7. Sign Up - Integration
 
 
+
+
+
+Session 4:
+
+1. Handle Protected Routes with Local Storage
+    Local Storage --> Redux
+    InitialData --> localStorage
+
+
+2. Route -> /users -> All Users
+
+1. Navbar me User Link
+
+2. Created user route
+3. Created User page
+4. Create UI for User page
+5. Show Users ton only authenticated users

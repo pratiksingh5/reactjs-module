@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { Navigate } from "react-router";
 
-const Protected = ({ children }) => {
-  const navigate = useNavigate();
+const ProtectedRoutes = ({ children }) => {
+  // const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
 //   useEffect(() => {
@@ -20,4 +20,4 @@ const Protected = ({ children }) => {
   return <div>{children}</div>;
 };
 
-export default Protected;
+export default ProtectedRoutes;

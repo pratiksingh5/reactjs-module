@@ -1,9 +1,9 @@
-1. Higher Order Component
+1. Higher Order Component --> DONE
 
 2. Authentication App
-    - ShadCN UI
-    - Form Validation 
-    - React Hook Form
+    - ShadCN UI --> DONE
+    - Form Validation --> DONE
+    - React Hook Form --> DONE
     - 
 3. useCallback
 4. useMemo

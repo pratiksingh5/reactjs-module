@@ -1,12 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router";
-import Navbar from "@/components/ui/Navbar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useSelector } from "react-redux";
 
 const Profile = () => {
-  const navigate = useNavigate();
-  const userInfo = useSelector((state) => state.user.user);
+  const userInfo = useSelector((state) => state.user);
+  // console.log("userInfo", userInfo)
 
   return (
     <div
