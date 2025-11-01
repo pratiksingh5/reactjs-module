@@ -3,9 +3,7 @@ import ProductList from "./components/ProductList";
 
 const App = () => {
   const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(1); // current page
   const [limit] = useState(10); // items per page
-  const [totalPages, setTotalPages] = useState(1); // for pagination later
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -13,11 +11,10 @@ const App = () => {
       try {
         setLoading(true);
         // ✅ Using dummyjson API which supports pagination
-        const response = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${(page - 1) * limit}`);
+        const response = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=0`);
         const data = await response.json();
 
         setProducts(data.products);
-        setTotalPages(Math.ceil(data.total / limit));
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -26,7 +23,7 @@ const App = () => {
     };
 
     fetchProducts();
-  }, [page, limit]);
+  }, [limit]);
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
