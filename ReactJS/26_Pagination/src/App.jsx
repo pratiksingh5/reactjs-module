@@ -1,20 +1,26 @@
 import React, { useState, useEffect } from "react";
 import ProductList from "./components/ProductList";
+import Pagination from "./components/Pagination";
 
 const App = () => {
   const [products, setProducts] = useState([]);
   const [limit] = useState(10); // items per page
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1)
+
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
         // ✅ Using dummyjson API which supports pagination
-        const response = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=0`);
+        const response = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${(page - 1) * limit}`);
         const data = await response.json();
 
         setProducts(data.products);
+        setTotalPages(Math.ceil(data.total / limit))
+
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -23,7 +29,7 @@ const App = () => {
     };
 
     fetchProducts();
-  }, [limit]);
+  }, [limit, page]);
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
@@ -35,6 +41,7 @@ const App = () => {
       ) : (
         <ProductList products={products} />
       )}
+      <Pagination totalPages={totalPages} page={page} setPage={setPage}/>
     </div>
   );
 };
